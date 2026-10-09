@@ -11,18 +11,26 @@ const HomePage = (props) => {
 
 	const genreId = Number(genreFilter);
 
-	  let displayedMovies = movies
+	let displayedMovies = movies
 		.filter((m) => {
 		  return m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
 		})
 		.filter((m) => {
 		  return genreId > 0 ? m.genre_ids.includes(genreId) : true;
-		});
+	});
+	
+	const addToFavorites = (movieId) => {
+		const updatedMovies = movies.map((m) =>
+		  m.id === movieId ? { ...m, favorite: true } : m
+		);
+		setMovies(updatedMovies);
+	};
 
-	  const handleChange = (type, value) => {
+
+	const handleChange = (type, value) => {
 		if (type === "name") setNameFilter(value);
 		else setGenreFilter(value);
-	  };
+	};
 
   useEffect(() => {
     fetch(
@@ -51,7 +59,7 @@ const HomePage = (props) => {
 			  genreFilter={genreFilter}
 			/>
         </Grid>
-            <MovieList movies={displayedMovies} />
+            <MovieList movies={displayedMovies} selectFavorite={addToFavorites} />
       </Grid>
     </Grid>
   );

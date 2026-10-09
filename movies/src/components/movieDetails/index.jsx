@@ -60,7 +60,17 @@ const [drawerOpen, setDrawerOpen] = useState(false);
           label={`${movie.vote_average} (${movie.vote_count})`}
         />
         <Chip label={`Released: ${movie.release_date}`} />
-      </Paper>
+		</Paper>
+		<Paper component="ul" sx={{...root}}>
+			<li>
+			  <Chip label="Production Countries" sx={{...chip}} color="primary" />
+			</li>
+			{movie.production_countries.map((c) => (
+				<li key={c.name}>
+					<Chip label={c.name} sx={{...chip}} />
+				</li>
+			))}
+		</Paper>
           <Fab
         color="secondary"
         variant="extended"
@@ -70,7 +80,7 @@ const [drawerOpen, setDrawerOpen] = useState(false);
           bottom: '1em',
           right: '1em'
         }}
-      >
+		>
         <NavigationIcon />
         Reviews
       </Fab>

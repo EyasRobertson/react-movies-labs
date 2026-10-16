@@ -9,6 +9,7 @@ import SiteHeader from './components/siteHeader'
 import UpcomingPage from './pages/upcomingMoviesPage';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import MoviesContextProvider from "./contexts/moviesContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,6 +26,7 @@ const App = () => {
   <QueryClientProvider client={queryClient}>
 		<BrowserRouter>
 		<SiteHeader />
+		<MoviesContextProvider>
 		  <Routes>
 			<Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
 			<Route path="/movies/:id" element={<MoviePage />} />
@@ -33,7 +35,9 @@ const App = () => {
 			<Route path="/reviews/:id" element={ <MovieReviewPage /> } />
 			<Route path="/movies/upcoming" element={ <UpcomingPage />}/>
 		  </Routes>
+		 </MoviesContextProvider>
 		</BrowserRouter>
+		<ReactQueryDevtools initialIsOpen={false} />
 	</QueryClientProvider>
   );
 };

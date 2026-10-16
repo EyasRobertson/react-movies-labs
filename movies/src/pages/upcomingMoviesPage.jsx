@@ -3,7 +3,7 @@ import PageTemplate from '../components/templateMovieListPage'
 import { getUpcomingMovies } from "../api/tmdb-api";
 
 
-const UpcomingMovies = (props) => {
+const UpcomingPage = (props) => {
   const [movies, setMovies] = useState([]);
   const favorites = movies.filter(m => m.favorite)
   localStorage.setItem('favorites', JSON.stringify(favorites))
@@ -30,4 +30,4 @@ const UpcomingMovies = (props) => {
     />
   );
 };
-export default UpcomingMovies;
+export default UpcomingPage;

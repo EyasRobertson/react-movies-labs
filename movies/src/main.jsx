@@ -12,6 +12,7 @@ import MovieReviewPage from "./pages/movieReviewPage";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import UpcomingPage from './pages/upcomingMoviesPage';
 import PopularPage from './pages/popularMoviesPage';
+import ActorPage from './pages/actorDetailsPage';
 
 
 
@@ -33,14 +34,17 @@ const App = () => {
 		<SiteHeader />
 		<MoviesContextProvider>
 		  <Routes>
-		  	<Route path="/movies/upcoming" element={ <UpcomingPage />}/>
-			<Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
-			<Route path="/movies/popular" element={<PopularPage />} />
-			<Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
-			<Route path="/movies/:id" element={<MoviePage />} />
-			<Route path="/reviews/:id" element={ <MovieReviewPage /> } />
-			<Route path="/" element={<HomePage />} />
-			<Route path="*" element={ <Navigate to="/" /> } />
+		  	<Route path="/movies/upcoming" element={ <UpcomingPage />}/>//shows upcoming movies
+			<Route path="/movies/favorites" element={<FavoriteMoviesPage />} />//shows the users favourites
+			<Route path="/actors/popular" element={<PopularPage />} />//shows popular people in the industry - NOT JUST ACTORS
+			<Route path="/reviews/form" element={ <AddMovieReviewPage /> } />//to add a review
+			
+			<Route path="/movies/:id" element={<MoviePage />} />//single movie details
+			<Route path="/actors/:id" element={<ActorPage />}> //single person details
+			<Route path="/reviews/:id" element={ <MovieReviewPage /> } />//reviews for a given movie
+			
+			<Route path="/" element={<HomePage />} />//home
+			<Route path="*" element={ <Navigate to="/" /> } />//home
 
 		  </Routes>
 		 </MoviesContextProvider>

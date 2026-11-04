@@ -24,9 +24,9 @@ const PopularPage = (props) => {
   const popularActors = data.results;
 
   // Redundant, but necessary to avoid app crashing.
-  const favorites = popularActors.filter(m => m.favorite)
-  localStorage.setItem('favorites', JSON.stringify(favorites))
-  const addToFavorites = (movieId) => true 
+ //const favorites = popularActors.filter(m => m.favorite)
+  //localStorage.setItem('favorites', JSON.stringify(favorites))
+  //const addToFavorites = (movieId) => true 
 
   return (
     <PageTemplate

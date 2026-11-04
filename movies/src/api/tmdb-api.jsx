@@ -16,7 +16,7 @@ export const getMovies = () => {
 
 
 export const getMovie = (args) => {
-  //console.log(args)
+  console.log(args)
   const [, idPart] = args.queryKey;
   const { id } = idPart;
   return fetch(
@@ -92,10 +92,19 @@ export const getMovie = (args) => {
   };
 
 
-export const getUpcomingMovies = id => {
+export const getUpcomingMovies = (args) => {
+	console.log(args)
 	return fetch(
-		`https://api.themoviedb.org/3/movie/upcoming?api_key=${import.meta.env.VITE_TMDB_KEY}`
-		)
-	.then(res => res.json())
-    .then(json => json.results);
+		`https://api.themoviedb.org/3/movie/upcoming?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&page=`
+		).then((response) => {
+			if (!response.ok) {
+				return response.json().then((error) => {
+					throw new Error(error.status_message || "Something went wrong");
+				});
+			}
+			return response.json();
+		})
+	.catch((error) => {
+    throw error
+ });
 };

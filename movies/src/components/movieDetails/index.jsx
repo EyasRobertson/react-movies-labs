@@ -48,7 +48,7 @@ console.log(credits);
   return (
     <>
       <Typography variant="h5" component="h3">
-        Overview
+        <b>Overview</b>
       </Typography>
 
       <Typography variant="h6" component="p">
@@ -69,13 +69,13 @@ console.log(credits);
         ))}
       </Paper>
       <Paper component="ul" sx={{...root}}>
-        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
+        <Chip icon={<AccessTimeIcon style={{ color: "black" }}/>} label={`${movie.runtime} min.`} />
         <Chip
-          icon={<MonetizationIcon />}
+          icon={<MonetizationIcon style={{ color: "green" }}/>}
           label={`${movie.revenue.toLocaleString()}`}
         />
         <Chip
-          icon={<StarRate />}
+          icon={<StarRate style={{ color: "yellow" }}/>}
           label={`${movie.vote_average} (${movie.vote_count})`}
         />
         <Chip label={`Released: ${movie.release_date}`} />

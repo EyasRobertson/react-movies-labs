@@ -9,7 +9,10 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
-import MovieReviews from "../movieReviews"
+import MovieReviews from "../movieReviews";
+import { getMovieCrew } from  "../../api/tmdb-api";
+import { useQuery } from "@tanstack/react-query";
+import Spinner from '../spinner';
 
 
 const root = {
@@ -25,6 +28,22 @@ const chip = { margin: 0.5 };
 const MovieDetails = ({ movie }) => {  // Don't miss this!
 const [drawerOpen, setDrawerOpen] = useState(false);
 
+
+const { data, error, isPending, isError } = useQuery({
+    queryKey: ['movieCrew', { id: movie.id }],
+    queryFn: getMovieCrew,
+  });
+  if (isPending) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+const crew = data.crew;
+const credits = data.cast;
+console.log(crew);
+console.log(credits);
 
   return (
     <>
@@ -71,6 +90,27 @@ const [drawerOpen, setDrawerOpen] = useState(false);
 				</li>
 			))}
 		</Paper>
+		<Paper component="ul" sx={{...root}}>
+			<li>
+			  <Chip label="Cast" sx={{...chip}} color="primary" />
+			</li>
+			{credits.map((cas) => (
+				<li key={cas.name}>
+					<Chip label={cas.name} sx={{...chip}} />
+				</li>
+			))}
+		</Paper>
+		<Paper component="ul" sx={{...root}}>
+			<li>
+			  <Chip label="Cast" sx={{...chip}} color="primary" />
+			</li>
+			{crew.map((cas) => (
+				<li key={cas.name}>
+					<Chip label={cas.name} sx={{...chip}} />
+				</li>
+			))}
+		</Paper>
+
           <Fab
         color="secondary"
         variant="extended"

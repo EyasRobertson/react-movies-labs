@@ -9,7 +9,7 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
-import Spinner from '../spinner'
+import Spinner from '../spinner';
 import { useQuery } from "@tanstack/react-query";
 import { getActorCredits } from "../../api/tmdb-api";
 
@@ -34,7 +34,6 @@ const [drawerOpen, setDrawerOpen] = useState(false);
   if (isPending) {
     return <Spinner />;
   }
-
   if (isError) {
     return <h1>{error.message}</h1>;
   }

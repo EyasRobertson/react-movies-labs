@@ -3,7 +3,7 @@ import ActorListPageTemplate from '../components/templateActorListPage'
 import { getPopularPeople } from "../api/tmdb-api";
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
-//import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+
 
 
 const PopularPage = (props) => {
@@ -23,11 +23,6 @@ const PopularPage = (props) => {
   
   const popularActors = data.results;
 
-  // Redundant, but necessary to avoid app crashing.
- //const favorites = popularActors.filter(m => m.favorite)
-  //localStorage.setItem('favorites', JSON.stringify(favorites))
-  //const addToFavorites = (movieId) => true 
-
   return (
     <ActorListPageTemplate
       title='Popular Actors'
@@ -38,5 +33,3 @@ const PopularPage = (props) => {
 
 };
 export default PopularPage;
-
-//this is v basic and not yet tailored to actors, using movies template

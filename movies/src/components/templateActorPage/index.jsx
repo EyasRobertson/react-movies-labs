@@ -1,5 +1,5 @@
 import React from "react";
-import MovieHeader from "../headerMovie";//DO STUFF 
+import ActorHeader from "../headerActor";//DO STUFF 
 import Grid from "@mui/material/Grid";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -8,9 +8,10 @@ import { useQuery } from "@tanstack/react-query";
 import Spinner from '../spinner'
 
 
-const TemplateActorPage = ({ actor, children }) => {
+const TemplateActorPage = ({ person, children }) => {
+	console.log(person)
     const { data, error, isPending, isError } = useQuery({
-    queryKey: ['images', { id: actor.id }],
+    queryKey: ['images', { id: person.id }],
     queryFn: getActorImages,
   });
 
@@ -22,12 +23,12 @@ const TemplateActorPage = ({ actor, children }) => {
     return <h1>{error.message}</h1>;
   }
   
-  const images = data.posters 
+  const images = data.profiles 
 
-
+console.log(images)
   return (
     <>
-      <MovieHeader actor={actor} />//this probably needs changing 'this' being make an actor header
+      <ActorHeader person={person} />
 
       <Grid container spacing={5} style={{ padding: "15px" }}>
         <Grid size={{xs: 3}}>
@@ -46,7 +47,7 @@ const TemplateActorPage = ({ actor, children }) => {
                     <ImageListItem key={image.file_path} cols={1}>
                     <img
                         src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
-                        alt={image.poster_path}//this probably needs changed 
+                        alt={image.poster_path}
                     />
                     </ImageListItem>
                 ))}

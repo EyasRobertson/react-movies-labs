@@ -11,8 +11,8 @@ import Spinner from '../components/spinner'
 
 const ActorPage = (props) => {
   const { id } = useParams();
-    const { data: actor, error, isPending, isError  } = useQuery({
-    queryKey: ['actor', {id: id}],
+    const { data: person, error, isPending, isError  } = useQuery({
+    queryKey: ['person', {id: id}],
     queryFn: getActor,
   })
 
@@ -27,14 +27,14 @@ const ActorPage = (props) => {
 
   return (
     <>
-      {actor ? (
+      {person ? (
         <>
-          <PageTemplate actor={actor}>
-            <ActorDetails actor={actor} />
+          <PageTemplate person={person}>
+            <ActorDetails person={person} />
           </PageTemplate>
         </>
       ) : (
-        <p>Waiting for actor details</p>
+        <p>Waiting for details</p>
       )}
     </>
   );

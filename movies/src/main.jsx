@@ -13,6 +13,7 @@ import AddMovieReviewPage from './pages/addMovieReviewPage';
 import UpcomingPage from './pages/upcomingMoviesPage';
 import PopularPage from './pages/popularActorsPage';
 import ActorPage from './pages/actorDetailsPage';
+import NowPlayingMoviesPage from './pages/nowPlayingMoviesPage';
 
 
 
@@ -38,6 +39,7 @@ const App = () => {
 			<Route path="/movies/favorites" element={<FavoriteMoviesPage />} />//shows the users favourites
 			<Route path="/actors/popular" element={<PopularPage />} />//shows popular people in the industry - NOT JUST ACTORS
 			<Route path="/reviews/form" element={ <AddMovieReviewPage /> } />//to add a review
+			<Route path="/movies/now_playing" element={ <NowPlayingMoviesPage /> } />
 			
 			<Route path="/movies/:id" element={<MoviePage />} />//single movie details
 			<Route path="/person/:id" element={<ActorPage />}/> //single person details

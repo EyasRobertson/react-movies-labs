@@ -1,19 +1,19 @@
 import React from "react";
 import { useParams } from 'react-router';
-import MovieDetails from "../components/movieDetails/";
-import PageTemplate from "../components/templateMoviePage";
+import ActorDetails from "../components/actorDetails/";
+import PageTemplate from "../components/templateActorPage";
 //import useMovie from "../hooks/useMovie"; redundant
-import { getMovie } from '../api/tmdb-api'
+import { getActor } from '../api/tmdb-api'
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner'
 
 
 
-const MoviePage = (props) => {
+const ActorPage = (props) => {
   const { id } = useParams();
-    const { data: movie, error, isPending, isError  } = useQuery({
-    queryKey: ['movie', {id: id}],
-    queryFn: getMovie,
+    const { data: actor, error, isPending, isError  } = useQuery({
+    queryKey: ['actor', {id: id}],
+    queryFn: getActor,
   })
 
   if (isPending) {
@@ -27,17 +27,17 @@ const MoviePage = (props) => {
 
   return (
     <>
-      {movie ? (
+      {actor ? (
         <>
-          <PageTemplate movie={movie}>
-            <MovieDetails movie={movie} />
+          <PageTemplate actor={actor}>
+            <ActorDetails actor={actor} />
           </PageTemplate>
         </>
       ) : (
-        <p>Waiting for movie details</p>
+        <p>Waiting for actor details</p>
       )}
     </>
   );
 };
 
-export default MoviePage;
+export default ActorPage;

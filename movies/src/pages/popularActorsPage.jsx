@@ -1,9 +1,9 @@
 
-import PageTemplate from '../components/templateMovieListPage'
+import PageTemplate from '../components/templateActorListPage'
 import { getPopularPeople } from "../api/tmdb-api";
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
-import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+//import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 
 
 const PopularPage = (props) => {
@@ -32,9 +32,9 @@ const PopularPage = (props) => {
     <PageTemplate
       title='Popular Actors'
       movies={popularActors}
-      action={(popularActors) => {
-          return <AddToFavoritesIcon movie={popularActors} />
-        }}
+      //action={(popularActors) => {
+          //return <AddToFavoritesIcon movie={popularActors} />
+        //}}
     />
   );
 

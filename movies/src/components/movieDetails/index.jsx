@@ -75,7 +75,7 @@ console.log(credits);
           label={`${movie.revenue.toLocaleString()}`}
         />
         <Chip
-          icon={<StarRate style={{ color: "yellow" }}/>}
+          icon={<StarRate style={{ color: "orange" }}/>}
           label={`${movie.vote_average} (${movie.vote_count})`}
         />
         <Chip label={`Released: ${movie.release_date}`} />

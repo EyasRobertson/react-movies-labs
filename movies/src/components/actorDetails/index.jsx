@@ -9,8 +9,9 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
-//import MovieReviews from "../movieReviews"
-//there are no reviews so there is no need for reviews
+import Spinner from '../spinner'
+import { useQuery } from "@tanstack/react-query";
+import { getActorCredits } from "../../api/tmdb-api";
 
 const root = {
     display: "flex",
@@ -21,11 +22,24 @@ const root = {
     margin: 0,
 };
 const chip = { margin: 0.5 };
-//technically not just includes actors but alas, im bad at naming things 
+
+
 const ActorDetails = ({ person }) => {  // Don't miss this!
 const [drawerOpen, setDrawerOpen] = useState(false);
 
+	const { data, error, isPending, isError } = useQuery({
+    queryKey: ['actorCreds', { id: person.id }],
+    queryFn: getActorCredits,
+  });
+  if (isPending) {
+    return <Spinner />;
+  }
 
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+const credits = data.cast;
+console.log(credits);
   return (
     <>
 
@@ -61,11 +75,18 @@ const [drawerOpen, setDrawerOpen] = useState(false);
 					<Chip label={c} sx={{...chip}} />
 				</li>
 			))}
-		</Paper>
-		
-
-		
-      </>
+	</Paper>
+	<Paper component="ul" sx={{...root}}>
+			<li>
+			  <Chip label="Worked On" sx={{...chip}} color="primary" />
+			</li>
+			{credits.map((credit) => (
+				<li key={credit}>
+					<Chip label={credit.title} sx={{...chip}} />
+				</li>
+			))}
+	</Paper>
+    </>
   );
 };
 export default ActorDetails ;

@@ -28,40 +28,42 @@ const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <>
-      <Typography variant="h5" component="h3">
-        Who Is This 
-      </Typography>
 
-      <Typography variant="h6" component="p">
-        {person.name}//the persons name 
-      </Typography>
+    <Typography variant="h4" component="p">
+        {person.name}
+    </Typography>
+	<Typography variant="h5" component="p">
+        {person.biography}
+    </Typography>
 
-      <Paper component="ul" sx={{...root}}>
-		<Chip label={`${person.known_for_department}`} sx={{...chip}} color="primary" />//what do they do, actor? stunt? director?
+    <Paper component="ul" sx={{...root}}>
+		<Chip label={`${person.known_for_department}`} sx={{...chip}} color="primary" />
 
         <Chip
-          icon={<MonetizationIcon />}
-          label={`${person.gender}`}//should show the persons gender
+
+          label={`Born : ${person.birthday}`}//
+        />
+		<Chip
+
+          label={`Died : ${person.deathday}`}//
         />
         <Chip
           icon={<StarRate />}
-          label={`${person.popularity}`}//should show the persons popularity 
+          label={`${person.popularity}`}
         />
-
-		</Paper>
-		
-		
-		<Paper component="ul" sx={{...root}}>
+	</Paper>
+	<Paper component="ul" sx={{...root}}>
 			<li>
-			  <Chip label="Known For" sx={{...chip}} color="primary" />
+			  <Chip label="Also Know As " sx={{...chip}} color="primary" />
 			</li>
-			{person.known_for.map((c) => (//this should show the movies / shows that the person is known for 
-				<li key={c.original_title}>
-					<Chip label={c.original_title} sx={{...chip}} />
+			{person.also_known_as.map((c) => (
+				<li key={c}>
+					<Chip label={c} sx={{...chip}} />
 				</li>
 			))}
 		</Paper>
 		
+
 		
       </>
   );

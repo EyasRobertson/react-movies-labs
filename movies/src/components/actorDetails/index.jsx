@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 //import MovieReviews from "../movieReviews"
-//there are no reviews 
+//there are no reviews so there is no need for reviews
 
 const root = {
     display: "flex",
@@ -66,4 +66,4 @@ const [drawerOpen, setDrawerOpen] = useState(false);
       </>
   );
 };
-export default MovieDetails ;
+export default ActorDetails ;

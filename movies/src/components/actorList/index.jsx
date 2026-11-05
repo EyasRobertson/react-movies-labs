@@ -1,14 +1,14 @@
 import React from "react";
-import Movie from "../movieCard/";
+import Actor from "../actorCard/";
 import Grid from "@mui/material/Grid";
 
-const MovieList = (props) => {
-  let movieCards = props.movies.map((m) => (
+const ActorList = (props) => {
+  let actorCards = props.actors.map((m) => (
     <Grid key={m.id} size={{xs: 12, sm: 6, md: 4, lg: 3, xl: 2}} sx={{padding: "20px"}}>
-        <Movie key={m.id} movie={m} action={props.action} />
+        <Actor key={m.id} actor={m} action={props.action} />
     </Grid>
   ));
-  return movieCards;
+  return actorCards;
 };
 
-export default MovieList;
+export default ActorList;

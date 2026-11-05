@@ -11,7 +11,7 @@ import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import UpcomingPage from './pages/upcomingMoviesPage';
-import PopularPage from './pages/popularMoviesPage';
+import PopularPage from './pages/popularActorsPage';
 import ActorPage from './pages/actorDetailsPage';
 
 
@@ -40,7 +40,7 @@ const App = () => {
 			<Route path="/reviews/form" element={ <AddMovieReviewPage /> } />//to add a review
 			
 			<Route path="/movies/:id" element={<MoviePage />} />//single movie details
-			<Route path="/actors/:id" element={<ActorPage />}> //single person details
+			<Route path="/actors/:id" element={<ActorPage />}/> //single person details
 			<Route path="/reviews/:id" element={ <MovieReviewPage /> } />//reviews for a given movie
 			
 			<Route path="/" element={<HomePage />} />//home

@@ -11,8 +11,9 @@ console.log(people);
   let displayedPeople = people
   .filter((a) => {
 		return a.name.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
+	
   });
-
+console.log(displayedPeople)
 
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
@@ -31,6 +32,7 @@ console.log(people);
           sx={{padding: "20px"}}
         >
         </Grid>
+		<ActorList action={action} people={displayedPeople}></ActorList>
       </Grid>
     </Grid>
   );

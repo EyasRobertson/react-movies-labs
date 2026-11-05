@@ -40,7 +40,7 @@ const App = () => {
 			<Route path="/reviews/form" element={ <AddMovieReviewPage /> } />//to add a review
 			
 			<Route path="/movies/:id" element={<MoviePage />} />//single movie details
-			<Route path="/actors/:id" element={<ActorPage />}/> //single person details
+			<Route path="/person/:id" element={<ActorPage />}/> //single person details
 			<Route path="/reviews/:id" element={ <MovieReviewPage /> } />//reviews for a given movie
 			
 			<Route path="/" element={<HomePage />} />//home

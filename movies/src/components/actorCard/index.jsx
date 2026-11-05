@@ -27,14 +27,14 @@ export default function ActorCard({ actor, action  }) {
         <CardHeader
 			title={
 			  <Typography variant="h5" component="p">
-				{actor.name}{" "}//should show the actors name
+				{actor.name}{" "}
 			  </Typography>
 			}
 		  />
 
       <CardMedia
         sx={{ height: 500 }}
-        image={//hopefully shows a picture of the actor 
+        image={
           actor.profile_path
             ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
             : img
@@ -45,22 +45,21 @@ export default function ActorCard({ actor, action  }) {
           <Grid size={{xs: 6}}>
             <Typography variant="h6" component="p">
               <CalendarIcon fontSize="small" />
-              {actor.age}//Should show the actors age
+              {actor.age}
             </Typography>
           </Grid>
           <Grid size={{xs: 6}}>
             <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />
-              {"  "} {actor.popularity}{" "}//should show the 'popularity'
+              {"  "} {actor.popularity}{" "}
             </Typography>
           </Grid>
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
+
       
-        {action(actor)}
-      
-        <Link to={`/person/${actor.id}`}>//this might need changed - should lead to the actors page, like with clicking on a movie in discover leads to that movies page
+        <Link to={`/person/${actor.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>

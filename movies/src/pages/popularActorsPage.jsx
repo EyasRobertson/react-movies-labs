@@ -32,9 +32,7 @@ const PopularPage = (props) => {
     <ActorListPageTemplate
       title='Popular Actors'
       people={popularActors}
-      action={(popularActors) => {
-        return <AddToFavoritesIcon movie={popularActors} />
-      }}
+      action={popularActors}
     />
   );
 

@@ -65,15 +65,17 @@ export default function FilterMoviesCard(props) {
           <SearchIcon fontSize="large" />
           Filter Movies
         </Typography>
-            <TextField
-			  sx={{...formControl}}
-			  id="filled-search"
-			  label="Search field"
-			  type="search"
-			  variant="filled"
-			  value={props.titleFilter}
-			  onChange={handleTextChange}
-			/>
+		
+        <TextField
+			sx={{...formControl}}
+			id="filled-search"
+			label="Search field"
+			type="search"
+			variant="filled"
+			value={props.titleFilter}
+			onChange={handleTextChange}
+		/>
+			
         <FormControl sx={{...formControl}}>
 			<InputLabel id="genre-label">Genre</InputLabel>
 			<Select
@@ -93,6 +95,8 @@ export default function FilterMoviesCard(props) {
             })}
           </Select>
         </FormControl>
+		
+		
       </CardContent>
 
       <CardContent>

@@ -8,6 +8,7 @@ import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
@@ -37,17 +38,17 @@ export default function MovieCard({ movie, action  }) {
   return (
     <Card>
         <CardHeader
-			avatar={
-			  movie.favorite ? (
-				<Avatar sx={{ backgroundColor: 'red' }}>
-				  <FavoriteIcon />
-				</Avatar>
-			  ) : null
-			}
 			title={
 			  <Typography variant="h5" component="p">
 				{movie.title}{" "}
 			  </Typography>
+			}
+			avatar={
+			  movie.favorite ? (
+				<Avatar sx={{backgroundColor:'white', color: 'red' }}>
+				  <FavoriteBorderIcon />
+				</Avatar>
+			  ) : null
 			}
 		  />
 
@@ -69,7 +70,7 @@ export default function MovieCard({ movie, action  }) {
           </Grid>
           <Grid size={{xs: 6}}>
             <Typography variant="h6" component="p">
-              <StarRateIcon fontSize="small" />
+              <StarRateIcon fontSize="small" color="warning"/>
               {"  "} {movie.vote_average}{" "}
             </Typography>
           </Grid>

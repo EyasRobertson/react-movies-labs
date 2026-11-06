@@ -61,7 +61,7 @@ console.log(credits);
           label={`Died : ${person.deathday}`}//
         />
         <Chip
-          icon={<StarRate />}
+          icon={<StarRate color="warning.light"/>}
           label={`${person.popularity}`}
         />
 	</Paper>

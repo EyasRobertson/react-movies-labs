@@ -13,9 +13,6 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'
 import Avatar from '@mui/material/Avatar';
-//import { useContext } from "react";
-//import { ActorsContext } from "../../contexts/actorsContext";
-
 
 
 export default function ActorCard({ actor, action  }) {
@@ -23,8 +20,9 @@ export default function ActorCard({ actor, action  }) {
 
   
   return (
-    <Card>
+    <Card style={{backgroundColor: "rgb(245,245,245)"}} >
         <CardHeader
+		
 			title={
 			  <Typography variant="h5" component="p">
 				{actor.name}{" "}
@@ -42,15 +40,10 @@ export default function ActorCard({ actor, action  }) {
       />
       <CardContent>
         <Grid container>
-          <Grid size={{xs: 6}}>
+
+          <Grid >
             <Typography variant="h6" component="p">
-              <CalendarIcon fontSize="small" />
-              {actor.age}
-            </Typography>
-          </Grid>
-          <Grid size={{xs: 6}}>
-            <Typography variant="h6" component="p">
-              <StarRateIcon fontSize="small" />
+              <StarRateIcon color="warning" fontSize="small" />
               {"  "} {actor.popularity}{" "}
             </Typography>
           </Grid>
@@ -60,8 +53,8 @@ export default function ActorCard({ actor, action  }) {
 
       
         <Link to={`/person/${actor.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
-            More Info ...
+          <Button variant="outlined" size="medium" style={{backgroundColor:"rgb(228, 241, 245)"}}>
+            See More!
           </Button>
         </Link>
         

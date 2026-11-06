@@ -36,7 +36,7 @@ export default function MovieCard({ movie, action  }) {
 
   
   return (
-    <Card>
+    <Card style={{backgroundColor: "rgb(245,245,245)"}}>
         <CardHeader
 			title={
 			  <Typography variant="h5" component="p">
@@ -81,8 +81,8 @@ export default function MovieCard({ movie, action  }) {
         {action(movie)}
       
         <Link to={`/movies/${movie.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
-            More Info ...
+          <Button variant="outlined" size="medium" style={{backgroundColor:"rgb(228, 241, 245)"}}>
+            See More!
           </Button>
         </Link>
         

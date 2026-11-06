@@ -26,6 +26,7 @@ export default function FilterMoviesCard(props) {
     queryFn: getGenres,
   });
 
+
   if (isPending) {
     return <Spinner />;
   }
@@ -38,7 +39,7 @@ export default function FilterMoviesCard(props) {
   if (genres[0].name !== "All"){
     genres.unshift({ id: "0", name: "All" });
   }
-
+  
   const handleChange = (e, type, value) => {
     e.preventDefault();
     props.onUserInput(type, value); 
@@ -51,6 +52,10 @@ export default function FilterMoviesCard(props) {
   const handleGenreChange = (e) => {
     handleChange(e, "genre", e.target.value);
   };
+
+	const handleYearChange = (e, props) => {
+		handleChange(e, "year", e.target.value);
+	};
 
 
 
@@ -75,6 +80,16 @@ export default function FilterMoviesCard(props) {
 			value={props.titleFilter}
 			onChange={handleTextChange}
 		/>
+		
+		<TextField
+			sx={{...formControl}}
+			id="filled-search"
+			label="Search Year"
+			type="search"
+			variant="filled"
+			value={props.yearFilter}
+			onChange={handleYearChange}
+		/>
 			
         <FormControl sx={{...formControl}}>
 			<InputLabel id="genre-label">Genre</InputLabel>
@@ -95,8 +110,7 @@ export default function FilterMoviesCard(props) {
             })}
           </Select>
         </FormControl>
-		
-		
+
       </CardContent>
 
       <CardContent>

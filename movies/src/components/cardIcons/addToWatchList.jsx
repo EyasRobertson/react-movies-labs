@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { MoviesContext } from "../../contexts/moviesContext";
 import IconButton from "@mui/material/IconButton";
-import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 
 const AddToWatchListIcon = ({ movie }) => {
   const context = useContext(MoviesContext);
@@ -13,7 +13,7 @@ const AddToWatchListIcon = ({ movie }) => {
 
   return (
     <IconButton aria-label="add to watch list" onClick={handleAddToWatchList}>
-      <PlaylistAddIcon color="primary" fontSize="large" />
+      <VisibilityOutlinedIcon color="info" fontSize="large" />
     </IconButton>
   );
 };

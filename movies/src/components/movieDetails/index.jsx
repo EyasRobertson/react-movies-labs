@@ -13,7 +13,7 @@ import MovieReviews from "../movieReviews";
 import { getMovieCrew } from  "../../api/tmdb-api";
 import { useQuery } from "@tanstack/react-query";
 import Spinner from '../spinner';
-
+import Divider from '@mui/material/Divider';
 
 const root = {
     display: "flex",
@@ -23,9 +23,12 @@ const root = {
     padding: 1.5,
     margin: 0,
 };
+
+
+
 const chip = { margin: 0.5 };
 
-const MovieDetails = ({ movie }) => {  // Don't miss this!
+const MovieDetails = ({ movie }) => { 
 const [drawerOpen, setDrawerOpen] = useState(false);
 
 
@@ -50,7 +53,9 @@ console.log(credits);
       <Typography variant="h5" component="h3">
         <b>Overview</b>
       </Typography>
-
+	  
+		<Divider />
+		
       <Typography variant="h6" component="p">
         {movie.overview}
       </Typography>

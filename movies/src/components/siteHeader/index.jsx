@@ -32,6 +32,7 @@ const SiteHeader = () => {
 	{ label: "Now Playing", path: "/movies/now_playing" },
 	{ label: "Actors", path: "/actors/popular" },
   ];
+  
 
   const handleMenuSelect = (pageURL) => {
     setAnchorEl(null);
@@ -61,38 +62,38 @@ const SiteHeader = () => {
                 <MenuIcon />
                 </IconButton>
                 <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={open}
-                  onClose={() => setAnchorEl(null)}
+					id="menu-appbar"
+					anchorEl={anchorEl}
+					anchorOrigin={{
+						vertical: "top",
+						horizontal: "right",
+					}}
+					keepMounted
+					transformOrigin={{
+						vertical: "top",
+						horizontal: "right",
+					}}
+					open={open}
+					onClose={() => setAnchorEl(null)}
                 >
-                  {menuOptions.map((opt) => (
-                    <MenuItem
-                      key={opt.label}
-                      onClick={() => handleMenuSelect(opt.path)}
-                    >
-                      {opt.label}
-                    </MenuItem>
-                  ))}
-                </Menu>
-              </>
+					{menuOptions.map((opt) => (
+						<MenuItem
+							key={opt.label}
+							onClick={() => handleMenuSelect(opt.path)}
+						>
+							{opt.label}
+						</MenuItem>
+					))}
+				</Menu>
+                </>
             ) : (
               <>
                 {menuOptions.map((opt) => (
-                  <Button
-                    key={opt.label}
-                    color="inherit"
-                    onClick={() => handleMenuSelect(opt.path)}
-                  >
+					<Button
+						key={opt.label}
+						color="inherit"
+						onClick={() => handleMenuSelect(opt.path)}
+					>
                     {opt.label}
                   </Button>
                 ))}

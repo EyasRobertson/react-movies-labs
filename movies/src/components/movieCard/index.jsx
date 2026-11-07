@@ -20,6 +20,7 @@ import { MoviesContext } from "../../contexts/moviesContext";
 
 
 
+
 export default function MovieCard({ movie, action  }) {
   const { favorites, addToFavorites } = useContext(MoviesContext);
   const { watchList, addToWatchList } = useContext(MoviesContext);
@@ -67,7 +68,6 @@ export default function MovieCard({ movie, action  }) {
 				</Avatar>
 			  ) : null
 			}
-
 		  />
 
       <CardMedia
@@ -75,36 +75,34 @@ export default function MovieCard({ movie, action  }) {
         image={
           movie.poster_path
             ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-            : img
+            : (<Skeleton variant="rectangular" width={210} height={118} />)
         }
       />
-      <CardContent>
-        <Grid container>
-          <Grid size={{xs: 6}}>
-            <Typography variant="h6" component="p">
-              <CalendarIcon fontSize="small" />
-              {movie.release_date}
-            </Typography>
-          </Grid>
-          <Grid size={{xs: 6}}>
-            <Typography variant="h6" component="p">
-              <StarRateIcon fontSize="small" color="warning"/>
-              {"  "} {movie.vote_average}{" "}
-            </Typography>
-          </Grid>
-        </Grid>
-      </CardContent>
-      <CardActions disableSpacing>
-      
-        {action(movie)}
-      
-        <Link to={`/movies/${movie.id}`}>
-          <Button variant="outlined" size="medium" style={{backgroundColor:"rgb(228, 241, 245)"}}>
-            See More!
-          </Button>
-        </Link>
-        
-      </CardActions>
+		<CardContent>
+			<Grid container>
+				<Grid size={{xs: 6}}>
+					<Typography variant="h6" component="p">
+						<CalendarIcon fontSize="small" />
+						{movie.release_date}
+					</Typography>
+				</Grid>
+				<Grid size={{xs: 6}}>
+					<Typography variant="h6" component="p">
+						<StarRateIcon fontSize="small" color="warning"/>
+						{"  "} {movie.vote_average}{" "}
+					</Typography>
+				</Grid>
+			</Grid>
+		</CardContent>
+		<CardActions disableSpacing>
+			{action(movie)}
+		  
+			<Link to={`/movies/${movie.id}`}>
+				<Button variant="outlined" size="medium" style={{backgroundColor:"rgb(228, 241, 245)"}}>
+					See More!
+				</Button>
+			</Link> 
+		</CardActions>
 
     </Card>
   );

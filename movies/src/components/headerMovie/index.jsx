@@ -1,5 +1,5 @@
 import React from "react";
-
+import AppBar from '@mui/material/AppBar';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import Box from '@mui/material/Box';
@@ -14,6 +14,7 @@ const MovieHeader = (props) => {
   const navigate = useNavigate();
 
   return (
+  <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0 }}>
     <Paper 
         component="div" 
         sx={{
@@ -22,6 +23,7 @@ const MovieHeader = (props) => {
             flexWrap: "wrap",
             padding: 1.5,
             margin: 0,
+			color:"rgb(30,95,30)"
         }}
       >
       <IconButton aria-label="go back" onClick={() => navigate(-1)} >
@@ -37,12 +39,13 @@ const MovieHeader = (props) => {
         <b>{movie.title}</b>
         </Box>
         <br />
-        <span sx={{ fontSize: "1.5rem" }}><i>{`   "${movie.tagline}"`} </i></span>
+        <span sx={{ fontSize: "1.3rem" }}><i>{`   "${movie.tagline}"`} </i></span>
       </Typography>
       <IconButton aria-label="go forward" onClick={() => navigate(+1) } >
         <ArrowRightIcon color="warning" fontSize="large" />
       </IconButton>
     </Paper>
+	</AppBar>
   );
 };
 

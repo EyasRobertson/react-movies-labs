@@ -1,7 +1,7 @@
 import React from "react";
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-
+import AppBar from '@mui/material/AppBar';
 import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -12,6 +12,7 @@ const Header = (props ) => {
     const navigate = useNavigate();
 
   return (
+  <AppBar position="fixed" color="00000" sx={{ top: 'auto', bottom: 0 }}>
     <Paper 
       component="div" 
       sx={{
@@ -19,6 +20,7 @@ const Header = (props ) => {
         justifyContent: "space-around",
         flexWrap: "wrap",
         marginBottom: 1.5,
+		color:"rgb(30,95,30)"
       }}
     >
         <IconButton aria-label="go back" onClick={() => navigate(-1)}>
@@ -34,6 +36,7 @@ const Header = (props ) => {
         </IconButton>
 
     </Paper>
+	</AppBar>
   );
 };
 

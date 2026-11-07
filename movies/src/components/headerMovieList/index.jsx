@@ -6,12 +6,17 @@ import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router";
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Slide from '@mui/material/Slide';
+
 
 const Header = (props ) => {
 	const title = props.title
     const navigate = useNavigate();
+	 const trigger = useScrollTrigger();
 
   return (
+  <Slide appear={false} direction="down" in={!trigger}>
   <AppBar position="fixed" color="00000" sx={{ top: 'auto', bottom: 0 }}>
     <Paper 
       component="div" 
@@ -37,6 +42,7 @@ const Header = (props ) => {
 
     </Paper>
 	</AppBar>
+	</Slide>
   );
 };
 

@@ -16,7 +16,7 @@ const Header = (props ) => {
 	 const trigger = useScrollTrigger();
 
   return (
-  <Slide appear={false} direction="down" in={!trigger}>
+  <Slide appear={false} direction="up" in={!trigger}>
   <AppBar position="fixed" color="00000" sx={{ top: 'auto', bottom: 0 }}>
     <Paper 
       component="div" 

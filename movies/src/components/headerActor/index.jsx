@@ -1,7 +1,7 @@
 import React from "react";
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import Divider from '@mui/material/Divider';
+import AppBar from '@mui/material/AppBar';
 import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -13,35 +13,34 @@ const ActorHeader = (props) => {
   const navigate = useNavigate();
 
   return (
-    <Paper 
+  <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0 }}>
+   <Paper
         component="div" 
         sx={{
             display: "flex",
-            justifyContent: "space-around",
+            justifyContent: "space-between",
             flexWrap: "wrap",
             padding: 1.5,
             margin: 0,
         }}
-      >
-      <IconButton aria-label="go back" onClick={() => navigate(-1)} >
-        <ArrowLeftIcon color="warning" fontSize="large" />
-      </IconButton>
+    >
+		<IconButton aria-label="go back" onClick={() => navigate(-1)} >
+			<ArrowLeftIcon color="warning" fontSize="large" />
+		</IconButton>
 
-      <Typography variant="h4" component="h3">
-	  <a href={person.homepage}>
-          <HomeIcon color="primary" fontSize="large"/>
-        </a>
-        <b>
-        {person.name}
-		</b>
-        <br />
+		<Typography variant="h4" component="h3">
+			<b>
+			{person.name}
+			</b>
 
-      </Typography>
+		</Typography>
 
-      <IconButton aria-label="go forward" onClick={() => navigate(+1) } >
-        <ArrowRightIcon color="warning" fontSize="large" />
-      </IconButton>
-    </Paper>
+		<IconButton aria-label="go forward" onClick={() => navigate(+1) } >
+			<ArrowRightIcon color="warning" fontSize="large" />
+		</IconButton>
+		</Paper>
+    </AppBar>
+	
   );
 };
 

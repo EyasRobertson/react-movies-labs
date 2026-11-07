@@ -28,7 +28,6 @@ const TemplateActorPage = ({ person, children }) => {
 console.log(images)
   return (
     <>
-      <ActorHeader person={person} />
 
       <Grid container spacing={5} style={{ padding: "15px" }}>
         <Grid size={{xs: 3}}>
@@ -59,6 +58,7 @@ console.log(images)
           {children}
         </Grid>
       </Grid>
+	  <ActorHeader person={person} />
     </>
   );
 };

@@ -8,12 +8,16 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import HomeIcon from "@mui/icons-material/Home";
 import { useNavigate } from "react-router";
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Slide from '@mui/material/Slide';
 
 const MovieHeader = (props) => {
   const movie = props.movie;
   const navigate = useNavigate();
+  const trigger = useScrollTrigger();
 
   return (
+  <Slide appear={false} direction="up" in={!trigger}>
   <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0 }}>
     <Paper 
         component="div" 
@@ -46,6 +50,7 @@ const MovieHeader = (props) => {
       </IconButton>
     </Paper>
 	</AppBar>
+	</Slide>
   );
 };
 

@@ -13,7 +13,7 @@ import Slide from '@mui/material/Slide';
 const Header = (props ) => {
 	const title = props.title
     const navigate = useNavigate();
-	 const trigger = useScrollTrigger();
+	const trigger = useScrollTrigger();
 
   return (
   <Slide appear={false} direction="up" in={!trigger}>

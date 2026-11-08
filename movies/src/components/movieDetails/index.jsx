@@ -1,4 +1,4 @@
-
+import { Link } from "react-router";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -14,6 +14,7 @@ import { getMovieCrew } from  "../../api/tmdb-api";
 import { useQuery } from "@tanstack/react-query";
 import Spinner from '../spinner';
 import Divider from '@mui/material/Divider';
+import Button from "@mui/material/Button";
 
 
 const root = {
@@ -60,6 +61,13 @@ console.log(credits);
 		<Typography variant="h6" component="p">
 			{movie.overview}
 		</Typography>
+		<Paper component="ul" sx={{...root}}>
+			<Link to={`/movies/${movie.id}/recommendations`}>
+				<Button variant="outlined" size="medium" style={{backgroundColor:"rgb(228, 241, 245)"}}>
+					Recommendations
+				</Button>
+			</Link> 
+		</Paper>
 
 		<Paper 
 			component="ul" 
@@ -117,9 +125,6 @@ console.log(credits);
 			))}
 		</Paper>
 		<Paper component="ul" sx={{...root}}>
-		
-			<Recommendations id={movie.id} />
-
 		</Paper>
 		<Fab
 			color="secondary"
@@ -135,13 +140,12 @@ console.log(credits);
 			Reviews
 		</Fab>
 		<Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-			<MovieReviews
-			title='Recommendations'
-			movie={popularActors}
-			action={popularActors}/>
+			<MovieReviews movie={movie} />
 		</Drawer>
 
       </>
   );
 };
 export default MovieDetails ;
+
+

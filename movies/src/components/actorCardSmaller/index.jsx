@@ -31,7 +31,7 @@ export default function ActorCard({ actor  }) {
       <CardActions disableSpacing>
         <Link to={`/person/${actor.id}`}>
           <Button variant="outlined" size="medium" style={{backgroundColor:"rgb(228, 241, 245)"}}>
-            See More!
+            Details
           </Button>
         </Link>
         

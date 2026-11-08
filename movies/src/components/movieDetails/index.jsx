@@ -15,7 +15,7 @@ import { useQuery } from "@tanstack/react-query";
 import Spinner from '../spinner';
 import Divider from '@mui/material/Divider';
 import Button from "@mui/material/Button";
-import ActorList from '../actorList';
+import ActorListSmaller from '../actorListSmaller';
 
 
 const root = {
@@ -109,13 +109,13 @@ console.log(credits);
 			<li>
 				<Chip label="Cast" sx={{...chip}} style={{backgroundColor:"rgb(255, 200, 130)", color:"rgb(0,0,0)"}} />
 			</li>
-			<ActorList people={credits} />
+			<ActorListSmaller people={credits} />
 		</Paper>
 		<Paper component="ul" sx={{...root}}>
 			<li>
 				<Chip label="Crew" sx={{...chip}} style={{backgroundColor:"rgb(255, 200, 130)", color:"rgb(0,0,0)"}} />
 			</li>
-			<ActorList people={crew} />
+			<ActorListSmaller people={crew} />
 		</Paper>
 		<Paper component="ul" sx={{...root}}>
 		</Paper>

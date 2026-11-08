@@ -4,7 +4,7 @@ import { getTopRatedMovies } from "../api/tmdb-api";
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
-
+import AddToWatchListIcon from '../components/cardIcons/addToWatchList';
 
 const TopRatedPage = (props) => {
 	
@@ -27,13 +27,21 @@ const TopRatedPage = (props) => {
   const favorites = topRatedMovies.filter(m => m.favorite)
   localStorage.setItem('favorites', JSON.stringify(favorites))
   const addToFavorites = (movieId) => true 
+  const watchList = topRatedMovies.filter(m => m.watch)
+  localStorage.setItem('watchList', JSON.stringify(watchList))
+  const addToWatchList = (movieId) => true 
 
   return (
     <PageTemplate
       title='Top Rated Movies'
       movies={topRatedMovies}
-      action={(topRatedMovies) => {
-          return <AddToFavoritesIcon movie={topRatedMovies} />
+      action={(movie) => {
+          return (
+		  <>
+		  <AddToFavoritesIcon movie={movie} />
+		  <AddToWatchListIcon movie={movie} />
+		  </>
+		  );
         }}
     />
   );

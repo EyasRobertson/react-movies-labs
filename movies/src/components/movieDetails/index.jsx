@@ -15,6 +15,7 @@ import { useQuery } from "@tanstack/react-query";
 import Spinner from '../spinner';
 import Divider from '@mui/material/Divider';
 
+
 const root = {
     display: "flex",
     justifyContent: "center",
@@ -50,44 +51,44 @@ console.log(credits);
 
   return (
     <>
-      <Typography variant="h5" component="h3">
-        <b>Overview</b>
-      </Typography>
+		<Typography variant="h5" component="h3">
+			<b>Overview</b>
+		</Typography>
 	  
 		<Divider />
-		
-      <Typography variant="h6" component="p">
-        {movie.overview}
-      </Typography>
 
-      <Paper 
-        component="ul" 
-        sx={{...root}}
-      >
-        <li>
-          <Chip label="Genres" sx={{...chip}} color="primary" />
-        </li>
-        {movie.genres.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} sx={{...chip}} />
-          </li>
-        ))}
-      </Paper>
-      <Paper component="ul" sx={{...root}}>
-        <Chip icon={<AccessTimeIcon style={{ color: "black" }}/>} label={`${movie.runtime} min.`} />
-        <Chip
-          icon={<MonetizationIcon style={{ color: "green" }}/>}
-          label={`${movie.revenue.toLocaleString()}`}
-        />
-        <Chip
-          icon={<StarRate style={{ color: "orange" }}/>}
-          label={`${movie.vote_average} (${movie.vote_count})`}
-        />
-        <Chip label={`Released: ${movie.release_date}`} />
+		<Typography variant="h6" component="p">
+			{movie.overview}
+		</Typography>
+
+		<Paper 
+			component="ul" 
+			sx={{...root}}
+		>
+			<li>
+				<Chip label="Genres" sx={{...chip}} color="primary" />
+			</li>
+			{movie.genres.map((g) => (
+				<li key={g.name}>
+					<Chip label={g.name} sx={{...chip}} />
+				</li>
+			))}
+		</Paper>
+		<Paper component="ul" sx={{...root}}>
+			<Chip icon={<AccessTimeIcon style={{ color: "black" }}/>} label={`${movie.runtime} min.`} />
+			<Chip
+				icon={<MonetizationIcon style={{ color: "green" }}/>}
+				label={`${movie.revenue.toLocaleString()}`}
+			/>
+			<Chip
+				icon={<StarRate style={{ color: "orange" }}/>}
+				label={`${movie.vote_average} (${movie.vote_count})`}
+			/>
+			<Chip label={`Released: ${movie.release_date}`} />
 		</Paper>
 		<Paper component="ul" sx={{...root}}>
 			<li>
-			  <Chip label="Production Countries" sx={{...chip}} color="primary" />
+				<Chip label="Production Countries" sx={{...chip}} color="primary" />
 			</li>
 			{movie.production_countries.map((c) => (
 				<li key={c.name}>
@@ -97,7 +98,7 @@ console.log(credits);
 		</Paper>
 		<Paper component="ul" sx={{...root}}>
 			<li>
-			  <Chip label="Cast" sx={{...chip}} color="primary" />
+				<Chip label="Cast" sx={{...chip}} color="primary" />
 			</li>
 			{credits.map((cas) => (
 				<li key={cas.name}>
@@ -107,7 +108,7 @@ console.log(credits);
 		</Paper>
 		<Paper component="ul" sx={{...root}}>
 			<li>
-			  <Chip label="Cast" sx={{...chip}} color="primary" />
+				<Chip label="Cast" sx={{...chip}} color="primary" />
 			</li>
 			{crew.map((cas) => (
 				<li key={cas.name}>
@@ -116,22 +117,22 @@ console.log(credits);
 			))}
 		</Paper>
 
-          <Fab
-        color="secondary"
-        variant="extended"
-        onClick={() =>setDrawerOpen(true)}
-        sx={{
-          position: 'fixed',
-          bottom: '1em',
-          right: '1em'
-        }}
+		<Fab
+			color="secondary"
+			variant="extended"
+			onClick={() =>setDrawerOpen(true)}
+			sx={{
+				position: 'fixed',
+				bottom: '1em',
+				right: '1em'
+			}}
 		>
-        <NavigationIcon />
-        Reviews
-      </Fab>
-      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <MovieReviews movie={movie} />
-      </Drawer>
+			<NavigationIcon />
+			Reviews
+		</Fab>
+		<Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+			<MovieReviews movie={movie} />
+		</Drawer>
 
       </>
   );

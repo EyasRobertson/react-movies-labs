@@ -4,7 +4,7 @@ import { getNowPlayingMovies } from "../api/tmdb-api";
 import { useQuery } from '@tanstack/react-query';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
-
+import AddToWatchListIcon from '../components/cardIcons/addToWatchList';
 
 const NowPlayingPage = (props) => {
 	
@@ -27,13 +27,22 @@ const NowPlayingPage = (props) => {
   const favorites = nowPlayingMovies.filter(m => m.favorite)
   localStorage.setItem('favorites', JSON.stringify(favorites))
   const addToFavorites = (movieId) => true 
+  
+  const watchList = nowPlayingMovies.filter(m => m.watch)
+  localStorage.setItem('watchList', JSON.stringify(watchList))
+  const addToWatchList = (movieId) => true 
 
   return (
     <PageTemplate
       title='Now Playing Movies'
       movies={nowPlayingMovies}
-      action={(nowPlayingMovies) => {
-          return <AddToFavoritesIcon movie={nowPlayingMovies} />
+      action={(movie) => {
+          return (
+		  <>
+		  <AddToFavoritesIcon movie={movie} />
+		  <AddToWatchListIcon movie={movie} />
+		  </>
+		  );
         }}
     />
   );

@@ -116,7 +116,11 @@ console.log(credits);
 				</li>
 			))}
 		</Paper>
+		<Paper component="ul" sx={{...root}}>
+		
+			<Recommendations id={movie.id} />
 
+		</Paper>
 		<Fab
 			color="secondary"
 			variant="extended"
@@ -131,7 +135,10 @@ console.log(credits);
 			Reviews
 		</Fab>
 		<Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-			<MovieReviews movie={movie} />
+			<MovieReviews
+			title='Recommendations'
+			movie={popularActors}
+			action={popularActors}/>
 		</Drawer>
 
       </>

@@ -2,14 +2,16 @@
 import PageTemplate from '../components/templateMovieListPage'
 import { getMovieRecommendations } from "../api/tmdb-api";
 import { useQuery } from '@tanstack/react-query';
+import { useParams } from 'react-router';
 import Spinner from '../components/spinner';
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 import AddToWatchListIcon from '../components/cardIcons/addToWatchList';
 
-const RecommendedPage = (movie) => {
-	
+const RecommendedPage = (props) => {
+	const { id } = useParams();
+	console.log(id)
   const { data, error, isPending, isError  } = useQuery({
-    queryKey: ['recs',id: movie.id],
+    queryKey: ['recs',{id: id}],
     queryFn: getMovieRecommendations,
   })
   

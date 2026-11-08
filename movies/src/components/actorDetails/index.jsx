@@ -12,6 +12,9 @@ import Drawer from "@mui/material/Drawer";
 import Spinner from '../spinner';
 import { useQuery } from "@tanstack/react-query";
 import { getActorCredits } from "../../api/tmdb-api";
+import MovieList from '../movieList';
+import AddToFavoritesIcon from '../cardIcons/addToFavorites'
+import AddToWatchListIcon from '../cardIcons/addToWatchList';
 
 const root = {
     display: "flex",
@@ -75,15 +78,20 @@ console.log(credits);
 				</li>
 			))}
 	</Paper>
-	<Paper component="ul" sx={{...root}}>
+	<Paper component="ul" >
 			<li>
-			  <Chip label="Worked On" sx={{...chip}} style={{backgroundColor:"rgb(255, 200, 130)", color:"rgb(0,0,0)"}} />
+			  <Chip label="Worked On" sx={{...chip}} style={{backgroundColor:"rgb(255, 200, 130)", color:"rgb(0,0,0)"}}  />
 			</li>
-			{credits.map((credit) => (
-				<li key={credit}>
-					<Chip label={credit.title} sx={{...chip}} />
-				</li>
-			))}
+			<MovieList movies={credits} 
+			action={(movie) => {
+			  return (
+			  <>
+			  <AddToFavoritesIcon movie={movie} />
+			  <AddToWatchListIcon movie={movie} />
+			  </>
+			  );
+			}}/>
+			
 	</Paper>
     </>
   );

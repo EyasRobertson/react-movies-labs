@@ -98,7 +98,7 @@ export default function MovieCard({ movie, action  }) {
 			{action(movie)}
 		  
 			<Link to={`/movies/${movie.id}`}>
-				<Button variant="outlined" size="medium" style={{backgroundColor:"rgb(228, 241, 245)"}}>
+				<Button variant="outlined" size="medium" style={{backgroundColor:"rgb(255, 240, 230)", color:"rgb(0,0,0)"}}>
 					See More!
 				</Button>
 			</Link> 

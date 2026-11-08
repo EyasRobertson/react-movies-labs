@@ -13,7 +13,7 @@ const AddToWatchListIcon = ({ movie }) => {
 
   return (
     <IconButton aria-label="add to watch list" onClick={handleAddToWatchList}>
-      <VisibilityOutlinedIcon color="info" fontSize="large" />
+      <VisibilityOutlinedIcon style={{color:"rgb(80,175,80)"}} fontSize="large" />
     </IconButton>
   );
 };

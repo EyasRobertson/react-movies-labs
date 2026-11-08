@@ -50,7 +50,7 @@ console.log(credits);
     </Typography>
 
     <Paper component="ul" sx={{...root}}>
-		<Chip label={`${person.known_for_department}`} sx={{...chip}} color="primary" />
+		<Chip label={`${person.known_for_department}`} sx={{...chip}} style={{backgroundColor:"rgb(255, 200, 130)", color:"rgb(0,0,0)"}}/>
 
         <Chip
 
@@ -67,7 +67,7 @@ console.log(credits);
 	</Paper>
 	<Paper component="ul" sx={{...root}}>
 			<li>
-			  <Chip label="Also Know As " sx={{...chip}} color="primary" />
+			  <Chip label="Also Know As " sx={{...chip}} style={{backgroundColor:"rgb(255, 200, 130)", color:"rgb(0,0,0)"}} />
 			</li>
 			{person.also_known_as.map((c) => (
 				<li key={c}>
@@ -77,7 +77,7 @@ console.log(credits);
 	</Paper>
 	<Paper component="ul" sx={{...root}}>
 			<li>
-			  <Chip label="Worked On" sx={{...chip}} color="primary" />
+			  <Chip label="Worked On" sx={{...chip}} style={{backgroundColor:"rgb(255, 200, 130)", color:"rgb(0,0,0)"}} />
 			</li>
 			{credits.map((credit) => (
 				<li key={credit}>

@@ -63,8 +63,8 @@ console.log(credits);
 		</Typography>
 		<Paper component="ul" sx={{...root}}>
 			<Link to={`/movies/${movie.id}/recommendations`}>
-				<Button variant="outlined" size="medium" style={{backgroundColor:"rgb(228, 241, 245)"}}>
-					Recommendations
+				<Button variant="contained" size="medium" style={{backgroundColor:"rgb(255, 200, 130)", color:"rgb(0,0,0)"}}>
+					<b>Recommendations</b>
 				</Button>
 			</Link> 
 		</Paper>
@@ -74,7 +74,7 @@ console.log(credits);
 			sx={{...root}}
 		>
 			<li>
-				<Chip label="Genres" sx={{...chip}} color="primary" />
+				<Chip label="Genres" sx={{...chip}} style={{backgroundColor:"rgb(255, 200, 130)", color:"rgb(0,0,0)"}} />
 			</li>
 			{movie.genres.map((g) => (
 				<li key={g.name}>
@@ -96,7 +96,7 @@ console.log(credits);
 		</Paper>
 		<Paper component="ul" sx={{...root}}>
 			<li>
-				<Chip label="Production Countries" sx={{...chip}} color="primary" />
+				<Chip label="Production Countries" sx={{...chip}} style={{backgroundColor:"rgb(255, 200, 130)", color:"rgb(0,0,0)"}} />
 			</li>
 			{movie.production_countries.map((c) => (
 				<li key={c.name}>
@@ -106,7 +106,7 @@ console.log(credits);
 		</Paper>
 		<Paper component="ul" sx={{...root}}>
 			<li>
-				<Chip label="Cast" sx={{...chip}} color="primary" />
+				<Chip label="Cast" sx={{...chip}} style={{backgroundColor:"rgb(255, 200, 130)", color:"rgb(0,0,0)"}} />
 			</li>
 			{credits.map((cas) => (
 				<li key={cas.name}>
@@ -116,7 +116,7 @@ console.log(credits);
 		</Paper>
 		<Paper component="ul" sx={{...root}}>
 			<li>
-				<Chip label="Cast" sx={{...chip}} color="primary" />
+				<Chip label="Crew" sx={{...chip}} style={{backgroundColor:"rgb(255, 200, 130)", color:"rgb(0,0,0)"}} />
 			</li>
 			{crew.map((cas) => (
 				<li key={cas.name}>
